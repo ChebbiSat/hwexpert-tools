@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voltage Divider Calculator</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Voltage Divider Calculator</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+    </nav>
+  </header>
+  <main>
+    <label>Vin (V): <input type="number" id="vin"></label><br>
+    <label>R1 (Ohm): <input type="number" id="r1"></label><br>
+    <label>R2 (Ohm): <input type="number" id="r2"></label><br>
+    <button onclick="calculateDivider()">Calculate</button>
+    <p id="result"></p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Thamer HW-Expert</p>
+  </footer>
+  <script src="../assets/js/voltage-divider.js"></script>
+</body>
+</html>
