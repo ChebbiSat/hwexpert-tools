@@ -1,13 +1,16 @@
-function calculateDivider() {
+async function calculateDivider() {
   const vin = parseFloat(document.getElementById('vin').value);
   const r1 = parseFloat(document.getElementById('r1').value);
   const r2 = parseFloat(document.getElementById('r2').value);
 
-  if (isNaN(vin) || isNaN(r1) || isNaN(r2) || r1 + r2 === 0) {
-    document.getElementById('result').innerText = "Please enter valid values.";
-    return;
-  }
+  const response = await fetch('https://hwexpert-api.onrender.com/voltage-divider', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ vin, r1, r2 })
+  });
 
-  const vout = vin * (r2 / (r1 + r2));
-  document.getElementById('result').innerText = `Vout = ${vout.toFixed(2)} V`;
+  const data = await response.json();
+  document.getElementById('result').innerText = `Vout = ${data.vout} V`;
 }
